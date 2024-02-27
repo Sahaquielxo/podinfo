@@ -37,6 +37,7 @@ COPY --from=builder /podinfo/bin/podinfo .
 COPY --from=builder /podinfo/bin/podcli /usr/local/bin/podcli
 COPY ./ui ./ui
 RUN chown -R app:app ./
+RUN echo "random"
 
 USER app
 
