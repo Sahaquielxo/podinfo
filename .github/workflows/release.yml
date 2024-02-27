@@ -74,11 +74,6 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Publish Helm chart to GHCR
-        run: |
-          helm package charts/podinfo
-          helm push podinfo-${{ steps.prep.outputs.VERSION }}.tgz oci://ghcr.io/Sahaquielxo/charts
-          rm podinfo-${{ steps.prep.outputs.VERSION }}.tgz
       - name: Publish Flux OCI artifact to GHCR
         run: |
           flux push artifact oci://ghcr.io/Sahaquielxo/manifests/podinfo:${{ steps.prep.outputs.VERSION }} \
