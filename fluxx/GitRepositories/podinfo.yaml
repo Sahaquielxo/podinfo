@@ -5,12 +5,7 @@ metadata:
   name: podinfo
   namespace: default
 spec:
-  interval: 1m
+  interval: 1m0s
   url: https://github.com/Sahaquielxo/podinfo
   ref:
     branch: master
-  ignore: |
-    # exclude all
-    /*
-    # include charts directory
-    !/charts/  
