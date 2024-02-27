@@ -8,11 +8,8 @@ spec:
   chart:
     spec:
       chart: podinfo
-      version: '0.2.x'
       sourceRef:
         kind: GitRepository
         name: podinfo
         namespace: default
       interval: 1m
-  values:
-    replicaCount: 2
