@@ -74,15 +74,6 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Publish Timoni module to GHCR
-        run: |
-          timoni mod push ./timoni/podinfo oci://ghcr.io/Sahaquielxo/modules/podinfo \
-          --sign cosign \
-          --version ${{ steps.prep.outputs.VERSION }} \
-          -a 'org.opencontainers.image.source=https://github.com/Sahaquielxo/podinfo' \
-          -a 'org.opencontainers.image.licenses=Apache-2.0' \
-          -a 'org.opencontainers.image.description=A timoni.sh module for deploying Podinfo.' \
-          -a 'org.opencontainers.image.documentation=https://github.com/Sahaquielxo/podinfo/blob/main/timoni/podinfo/README.md'
       - name: Publish Helm chart to GHCR
         run: |
           helm package charts/podinfo
